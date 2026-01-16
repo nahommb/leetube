@@ -10,11 +10,11 @@ DOWNLOAD_DIR = "/tmp/downloads"
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
 def download_audio(url: str) -> str | None:
-
     cmd = [
         "yt-dlp",
         "-x",
         "--audio-format", "mp3",
+        "--cookies", "cookies.txt",
         "-o", os.path.join(DOWNLOAD_DIR, "%(title)s.%(ext)s"),
         url,
     ]
