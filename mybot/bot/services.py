@@ -14,8 +14,7 @@ def download_audio(url: str) -> str | None:
         "yt-dlp",
         "-x",
         "--audio-format", "mp3",
-        "--no-check-certificate",
-        "--user-agent", "Mozilla/5.0",
+        "--cookies", "cookies.txt",  # <<< Add this line
         "-o", os.path.join(DOWNLOAD_DIR, "%(title)s.%(ext)s"),
         url,
     ]
